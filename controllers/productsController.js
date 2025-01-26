@@ -21,7 +21,7 @@ export const getProduct = async (req, res) => {
     try {
         // fetch the product
         const product = await Product.findOne({
-            attributes:["id", "name", "description", "productViewed"],
+            attributes:["id", "name", "description", "productViewed", "price"],
             where: {
                 id,
                 isDeleted: false
@@ -69,7 +69,7 @@ export const getMostViewedProducts = async (req, res) => {
     const { limit = 5, currency } = req.query;
     try {
         const products = await Product.findAll({
-            attributes:["id", "name", "description", "productViewed"],
+            attributes:["id", "name", "description", "productViewed", "price"],
             where: {
                 isDeleted: false,
                 productViewed: {

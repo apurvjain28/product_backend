@@ -14,22 +14,22 @@ app.use(express.json());
 app.use("/products", router);
 
 try {
-    await sequelize.authenticate();product
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
+  await sequelize.authenticate();
+  console.log("Connection has been established successfully.");
+} catch (error) {
+  console.error("Unable to connect to the database:", error);
 }
 
 const port = process.env.PORT || 3001;
 
 const start = async () => {
-    try {
-        app.listen(port, () => {
-            console.log(`App listening on ${port}.....`)
-        })
-    } catch (error) {
-        console.log(error);
-    }
-}
+  try {
+    app.listen(port, () => {
+      console.log(`App listening on ${port}.....`);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 start();
